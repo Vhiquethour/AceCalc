@@ -1,0 +1,128 @@
+import 'dart:math' as math;
+
+import '../../domain/entities/unit_category.dart';
+import 'unit_helpers.dart';
+
+final List<UnitCategory> mechanicalCategories = [
+  UnitCategory(
+    id: 'pressure',
+    name: 'Pressure',
+    group: 'Mechanical',
+    iconKey: 'pressure',
+    defaultFromIndex: 3,
+    defaultToIndex: 5,
+    note: 'Gauge and absolute pressure differ by atmospheric pressure. '
+        'These conversions do not change the pressure reference.',
+    units: [
+      linearUnit('pa', 'Pascal', 'Pa', 1),
+      linearUnit('kpa', 'Kilopascal', 'kPa', 1000),
+      linearUnit('mpa', 'Megapascal', 'MPa', 1e6),
+      linearUnit('bar', 'Bar', 'bar', 1e5),
+      linearUnit('mbar', 'Millibar', 'mbar', 100),
+      linearUnit('psi', 'Pound per square inch', 'psi', 6894.757293168),
+      linearUnit('atm', 'Standard atmosphere', 'atm', 101325),
+      linearUnit('mmhg', 'Millimetre of mercury', 'mmHg', 133.322387415),
+      linearUnit('torr', 'Torr', 'torr', 101325 / 760),
+      linearUnit('inhg', 'Inch of mercury', 'inHg', 3386.389),
+      linearUnit('kgfcm2', 'Kilogram-force per cm²', 'kgf/cm²', 98066.5),
+    ],
+  ),
+  UnitCategory(
+    id: 'force',
+    name: 'Force',
+    group: 'Mechanical',
+    iconKey: 'force',
+    defaultFromIndex: 0,
+    defaultToIndex: 2,
+    units: [
+      linearUnit('n', 'Newton', 'N', 1),
+      linearUnit('kn', 'Kilonewton', 'kN', 1000),
+      linearUnit('lbf', 'Pound-force', 'lbf', 4.4482216152605),
+      linearUnit('kgf', 'Kilogram-force', 'kgf', 9.80665),
+    ],
+  ),
+  UnitCategory(
+    id: 'torque',
+    name: 'Torque',
+    group: 'Mechanical',
+    iconKey: 'torque',
+    defaultFromIndex: 0,
+    defaultToIndex: 2,
+    units: [
+      linearUnit('nm', 'Newton metre', 'N·m', 1),
+      linearUnit('knm', 'Kilonewton metre', 'kN·m', 1000),
+      linearUnit('lbfft', 'Pound-force foot', 'lbf·ft', 1.3558179483314),
+      linearUnit('lbfin', 'Pound-force inch', 'lbf·in', 0.1129848290276),
+      linearUnit('kgfm', 'Kilogram-force metre', 'kgf·m', 9.80665),
+    ],
+  ),
+  UnitCategory(
+    id: 'energy',
+    name: 'Energy',
+    group: 'Mechanical',
+    iconKey: 'energy',
+    defaultFromIndex: 4,
+    defaultToIndex: 5,
+    note: 'BTU is the International Table BTU. The calorie is the '
+        'thermochemical calorie (4.184 J).',
+    units: [
+      linearUnit('j', 'Joule', 'J', 1),
+      linearUnit('kj', 'Kilojoule', 'kJ', 1000),
+      linearUnit('mj', 'Megajoule', 'MJ', 1e6),
+      linearUnit('wh', 'Watt hour', 'Wh', 3600),
+      linearUnit('kwh', 'Kilowatt hour', 'kWh', 3.6e6),
+      linearUnit('btu', 'British thermal unit', 'BTU', 1055.05585262),
+      linearUnit('cal', 'Calorie', 'cal', 4.184),
+      linearUnit('kcal', 'Kilocalorie', 'kcal', 4184),
+      linearUnit('ftlbf', 'Foot pound-force', 'ft·lbf', 1.3558179483314),
+      linearUnit('therm', 'Therm (US)', 'therm', 1.054804e8),
+    ],
+  ),
+  UnitCategory(
+    id: 'power',
+    name: 'Power',
+    group: 'Mechanical',
+    iconKey: 'power',
+    defaultFromIndex: 1,
+    defaultToIndex: 3,
+    note: 'Mechanical horsepower (745.7 W) and metric horsepower (735.5 W) '
+        'are different. A refrigeration ton is 12,000 BTU/h.',
+    units: [
+      linearUnit('w', 'Watt', 'W', 1),
+      linearUnit('kw', 'Kilowatt', 'kW', 1000),
+      linearUnit('mw', 'Megawatt', 'MW', 1e6),
+      linearUnit('hp', 'Horsepower (mechanical)', 'hp', 745.69987158227),
+      linearUnit('hpm', 'Horsepower (metric)', 'PS', 735.49875),
+      linearUnit('btuh', 'BTU per hour', 'BTU/h', 0.29307107),
+      linearUnit('tr', 'Refrigeration ton', 'TR', 3516.8528421),
+    ],
+  ),
+  UnitCategory(
+    id: 'velocity',
+    name: 'Velocity',
+    group: 'Mechanical',
+    iconKey: 'velocity',
+    defaultFromIndex: 0,
+    defaultToIndex: 1,
+    units: [
+      linearUnit('ms', 'Metre per second', 'm/s', 1),
+      linearUnit('kmh', 'Kilometre per hour', 'km/h', 1 / 3.6),
+      linearUnit('mph', 'Mile per hour', 'mph', 0.44704),
+      linearUnit('fts', 'Foot per second', 'ft/s', 0.3048),
+      linearUnit('kn', 'Knot', 'kn', 1852 / 3600),
+    ],
+  ),
+  UnitCategory(
+    id: 'rotation',
+    name: 'Rotational speed',
+    group: 'Mechanical',
+    iconKey: 'rotation',
+    defaultFromIndex: 0,
+    defaultToIndex: 1,
+    units: [
+      linearUnit('rpm', 'Revolution per minute', 'rpm', 2 * math.pi / 60),
+      linearUnit('rads', 'Radian per second', 'rad/s', 1),
+      linearUnit('hz', 'Hertz', 'Hz', 2 * math.pi),
+    ],
+  ),
+];
